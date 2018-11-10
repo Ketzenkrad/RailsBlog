@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="post">
+    <h3 class="post_header">Добавление поста.</h3>
+    <%= form_for :post, url: posts_path do |f| %>
+    <p class="post_name">Название поста: <br>
+      <%= f.text_field(:title, {:class => 'form-control'}) %>
+    </p>
+    <p class="post_body">Содержание поста: <br>
+      <%= f.text_area(:body, {:class => 'form-control'}) %>
+    </p>
+    <p class="post_create">
+      <%= f.submit('Создать пост', {:class => 'btn btn-warning text-white'})%>
+    </p>
+    <% end %>
+  </div>
+</section>
