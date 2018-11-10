@@ -1,8 +1,43 @@
 <section class="current_posts">
-  <div class="posted shadow p-3 mb-5">
-    <h2 class="title"> <%= @post.title %> </h2>
-    <p class="body"> <%= @post.body %> </p>
+
+<div class="card-body shadow p-3 mb-5">
+<div class="card-body">
+    <h2 class="card-title"> <%= @post.title %> ✒</h2>
+    <p class="card-text"> <%= @post.body %> </p>
+    <%= link_to "Редактировать статью ✑", edit_post_path(@post), :class => 'btn btn-success'%>
+    <%= link_to "Удалить статью ⚠ ", post_path(@post), method: :delete, data: {confirm:"⚠ Вы уверены? Статья будет удалена. ⚠"}, :class => 'btn btn-warning'%>
+</div>
+</div>
+
+<hr>
+
+<div class="card-body">
+  <h2 class="card-title">Комментарии к статье ☑</h2>
+  <% @post.comments.each do |comment| %>
+  <div class="card-body shadow p-3 mb-5">
+    <p class="card-text text-secondary">Пользователь <span class="text-danger"><%= comment.username %></span> оставил комментарий:</p>
+    <p class="card-text"><span class=""><%= comment.body %></span></p>
   </div>
-  <%= link_to "Редактировать статью ✑", edit_post_path(@post), :class => 'btn btn-success'%>
-  <%= link_to "Удалить статью ⚠ ", post_path(@post), method: :delete, data: {confirm:"⚠ Вы уверены? Статья будет удалена. ⚠"}, :class => 'btn btn-warning'%>
+  <% end %>
+</div>
+
+<hr>
+
+<div class="card-body">
+  <h3 class="card-title">Добавить комментарий ⌨</h3>
+  <div class="shadow p-3 mb-5"">
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+  <p class="card-text">Пользователь (ник, имя) <br>
+    <%= f.text_field(:username, {:class => 'form-control'}) %>
+  </p>
+  <p class="card-text">Содержание комментария <br>
+    <%= f.text_area(:body, {:class => 'form-control'}) %>
+  </p>
+  <p class="card-text">
+    <%= f.submit('Добавить комментарий ✉', {:class => 'btn btn-danger text-white'})%>
+  </p>
+  <% end %>
+  </div>
+</div>
+
 </section>

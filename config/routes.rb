@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root 'posts#index', as: 'home'
   #url's
   get 'about' => 'pages#about', as: 'about'
-  resources :posts
+  #отслеживание ссылок внутри url-адресов;
+  resources :posts do resources :comments end
 end
