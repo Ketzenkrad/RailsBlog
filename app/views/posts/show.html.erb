@@ -1,6 +1,8 @@
 <section class="current_posts">
-  <div class="posted">
+  <div class="posted shadow p-3 mb-5">
     <h2 class="title"> <%= @post.title %> </h2>
     <p class="body"> <%= @post.body %> </p>
   </div>
+  <%= link_to "Редактировать статью ✑", edit_post_path(@post), :class => 'btn btn-success'%>
+  <%= link_to "Удалить статью ⚠ ", post_path(@post), method: :delete, data: {confirm:"⚠ Вы уверены? Статья будет удалена. ⚠"}, :class => 'btn btn-warning'%>
 </section>
