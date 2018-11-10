@@ -2,6 +2,8 @@ class PostsController < ApplicationController
 
   def index
     #Функционал;
+    #Показываем все статьи из DB
+    @post = Post.all
   end
 
   def new
