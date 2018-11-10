@@ -1,24 +1,24 @@
 <section class="section_main">
   <h2 class="header">Главная страница блога</h2>
-  <div class="post_block">
-    <p class="paragraph">Пара lorem об этом блоге</p>
+  <div class="card-body shadow p-3 mb-5">
+    <p class="card-text">Пара lorem об этом блоге</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-      reprehenderit in voluptate velit esse cillum dolore eu fugiat
-      nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-      sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      nisi ut aliquip ex ea commodo consequat.</p>
   </div>
-  <div class="link">
-    <p class="ref">Здесь вы можете посмотреть историю изменений по веткам:</p>
+  <div class="card-body shadow p-3 mb-5">
+    <p class="card-text">Здесь вы можете посмотреть историю изменений по веткам:</p>
     <a href="https://github.com/Ketzenkrad/RailsBlog" class="text-info">Ссылка на Github.</a>
   </div>
-  <div class="post_all">
-    <h2 class="header">Все посты этого блога:</h2>
+  <div class="card-body">
+    <h2 class="card-title">Все посты этого блога:</h2>
     <% @post.each do |post| %>
-    <h3> <%= post.title %> </h3>
-    <p> <%= post.body %> </p>
+    <div class="card-body shadow p-3 mb-5">
+      <h3 class="card-title"> <%= post.title %> </h3>
+      <p class="card-text"> <%= post.body %> </p>
+      <%= link_to "Читать далее..", post_path(post), class: "btn btn-danger" %>
+    </div>
     <% end %>
   </div>
 </section>
