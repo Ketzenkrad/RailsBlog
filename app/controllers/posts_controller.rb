@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def new
     #Новые посты;
+    @post = Post.new
   end
 
   def show
@@ -19,9 +20,13 @@ class PostsController < ApplicationController
     #Получаем параметры от формы с указанием типа;
     @post = Post.new(post_params)
     #сохраняем
-    @post.save
+    if(@post.save)
     #Перенаправление
     redirect_to @post
+    #Если не прошла проверка
+    else
+      render 'new'
+    end
   end
 
   private def post_params

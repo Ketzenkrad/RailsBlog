@@ -16,17 +16,19 @@
           <nav class="my-2 my-md-2 mr-md-2">
 
             <span class="btn btn-light p-7">
+              <%= link_to "На главную", home_path %>
+            </span>
+
+            <span class="btn btn-light p-7">
               <%= link_to "Обо мне", about_path %>
             </span>
 
             <span class="btn btn-light p-7">
-              <%= link_to "На главную", home_path %>
+              <%= link_to "Добавить статью", new_post_path %>
             </span>
+
           </nav>
 
-          <span class="btn btn-light p-7">
-            <%= link_to "Добавить статью", new_post_path %>
-          </span>
         </div>
 
     <div class="container">
