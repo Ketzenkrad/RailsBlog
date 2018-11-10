@@ -1,0 +1,23 @@
+<section class="section">
+  <div class="post">
+    <h3 class="post_header">Добавление поста</h3>
+    <div class="shadow p-3 mb-5"">
+    <%= form_for :post, url: posts_path do |f| %>
+      <% if @post.errors.any? %>
+      <% @post.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+      <% end %>
+    <% end %>
+    <p class="post_name">Название поста: <br>
+      <%= f.text_field(:title, {:class => 'form-control'}) %>
+    </p>
+    <p class="post_body">Содержание поста: <br>
+      <%= f.text_area(:body, {:class => 'form-control'}) %>
+    </p>
+    <p class="post_create">
+      <%= f.submit('Создать пост ✎', {:class => 'btn btn-danger text-white'})%>
+    </p>
+    <% end %>
+    </div>
+  </div>
+</section>

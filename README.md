@@ -5,11 +5,13 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.4.4
 
-* System dependencies
+* Rails version 5.2.1
 
-* Configuration
+* System dependencies -none
+
+* Configuration Windows 10 <=> VirtualBox/Ubuntu 18.04
 
 * Database creation
 
